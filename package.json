@@ -1,9 +1,9 @@
 {
-  "name": "app-kit",
-  "namespace": "appkit",
+  "name": "cercle-skel",
+  "namespace": "cercle",
   "APIMethod": "stub",
-  "proxyURL": "http://localhost:8000",
-  "version": "0.0.0",
+  "proxyURL": "http://localhost:3000",
+  "version": "0.0.1",
   "private": true,
   "directories": {
     "doc": "doc",
@@ -17,12 +17,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/stefanpenner/ember-app-kit.git"
+    "url": "git@github.com:randomfactor/cercle-skel.git"
+  },
+  "dependencies": {
+    "express": "3.4.4",
+    "jade": "~0.35.0",
+    "stylus": "~0.41.0"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "express": "~3.4.2",
+    "express": "3.4.4",
     "lockfile": "~>0.3.0",
     "bower": "~1.2.7",
     "grunt": "~0.4.2",
