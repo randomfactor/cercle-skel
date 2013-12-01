@@ -24,11 +24,15 @@ app.use(express.cookieParser('your secret here'));
 app.use(express.session());
 app.use(app.router);
 app.use(require('stylus').middleware(path.join(__dirname, 'public')));
+app.use('/vendor', express.static(path.join(__dirname, 'vendor')));
+app.use('/assets', express.static(path.join(__dirname, 'tmp/result/assets')));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // development only
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
+  app.set('view options', { pretty: true });
+  app.locals.pretty = true;
 }
 
 app.get('/', routes.index);

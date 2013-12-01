@@ -1,5 +1,5 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  script()
+    window.App = require('appkit/app')["default"].create();

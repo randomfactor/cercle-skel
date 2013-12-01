@@ -2,6 +2,17 @@ doctype 5
 html
   head
     title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/assets/app.css')
+    link(rel='stylesheet', href='/vendor/bootstrap/dist/css/bootstrap.css')
+    script(src='/vendor/jquery/jquery.js')
+    script(src='/vendor/handlebars/handlebars.js')
+    script(src='/vendor/ember/ember.js')
+    script(src='/vendor/ember-data/ember-data.js')
+    script(src='/vendor/loader.js')
+    script(src='/vendor/ember-resolver/dist/ember-resolver.js')
+    script(src='/vendor/ic-ajax/main.js')
+    script(src='/vendor/bootstrap/dist/js/bootstrap.js')
+    script(src='/assets/app.js')
+    script(src='/assets/templates.js')
   body
     block content
