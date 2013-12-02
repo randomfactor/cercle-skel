@@ -1,13 +1,13 @@
 # TODO: Fix: CERCLE Stack [![Build Status](https://travis-ci.org/stefanpenner/ember-app-kit.png?branch=master)](https://travis-ci.org/stefanpenner/ember-app-kit)
 
-CERCLE Skeleton can be used for a baseline project utilizing the following technologies:
+CERCLE Skeleton can be used for a baseline end-to-end project utilizing the following technologies:
 
-* [Ember](http://emberjs.com/) for browser-side MVC
-* Bootstrap for standardized UI elements
-* Node.js and Express for web server functions
-* Redis for session state management
-* CouchDB for persistent json document storage
-* CoffeeScript, Stylus, and Jade to simplify development
+* C - CoffeeScript, Stylus, and Jade to simplify development
+* E - [Ember](http://emberjs.com/) for browser-side MVC
+* R - Redis for session state management
+* C - CouchDB for persistent json document storage
+* L - Linux for the operating system
+* E - Express for the web application framework
 
 ## Getting Started
 

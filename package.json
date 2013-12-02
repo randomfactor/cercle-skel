@@ -23,7 +23,8 @@
     "express": "3.4.4",
     "jade": "~0.35.0",
     "stylus": "~0.41.0",
-    "connect-redis": "~1.4.6"
+    "connect-redis": "~1.4.6",
+    "then-couchdb": "~0.4.3"
   },
   "author": "",
   "license": "MIT",
@@ -54,6 +55,8 @@
     "karma-coverage": "~0.0.3",
     "karma-phantomjs-launcher": "~0.0.2",
     "express-namespace": "~0.1.1",
-    "request": "~2.27.0"
+    "request": "~2.27.0",
+    "couchapp": "~0.10.0",
+    "grunt-jasmine-node": "~0.1.0"
   }
 }

@@ -5,10 +5,13 @@
 
 express = require('express')
 routes = require('./routes')
-user = require('./routes/user')
 http = require('http')
 path = require('path')
 sessStore = require('connect-redis')(express)
+
+# storage documents
+db = require './lib/dbdata'
+User = require('./lib/user').User
 
 app = express()
 
@@ -32,6 +35,7 @@ app.configure ->
   app.set('port', process.env.PORT || 3000)
   app.set('views', path.join(__dirname, 'views'))
   app.set('view engine', 'jade')
+  app.set('couchurl', couchdb_url)    # save the persistent storage URL for later initialization
   app.use(express.favicon())
   app.use(express.logger('dev'))
   app.use(express.bodyParser())
@@ -55,7 +59,10 @@ app.configure 'development', ->
 
 app.configure ->
   app.get('/', routes.index)
-  app.get('/users', user.list)
+  routes.map_routes app
+
+# initialize the URL for persistent json document storage
+db.setup { db_url: app.get 'couchurl' }
 
 http.createServer(app).listen(app.get('port'), ->
   console.log('Express server listening on port ' + app.get('port'))

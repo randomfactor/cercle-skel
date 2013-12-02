@@ -232,5 +232,17 @@ module.exports = function(grunt) {
     grunt.file.mkdir('tmp/result');
   });
 
+  // TODO: change this into a legitimate helper method with initialization
+  grunt.registerTask('designdoc_couchdb', 'Use couchapp to put couchdb/app.js in cercle db', function() {
+    couchdb_url = 'http://admin:password@127.0.0.1:5984/cercle';
+    done = this.async();
+    var path = require('path');
+    var appobj = require(path.join(process.cwd(), './couchdb/app.coffee'));
+    var couchapp = require('couchapp');
+    return couchapp.createApp(appobj, couchdb_url, function(app) {
+      return app.push(done);
+    });
+  });
+
   grunt.initConfig(config);
 };
