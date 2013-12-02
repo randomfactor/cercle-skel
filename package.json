@@ -22,7 +22,8 @@
   "dependencies": {
     "express": "3.4.4",
     "jade": "~0.35.0",
-    "stylus": "~0.41.0"
+    "stylus": "~0.41.0",
+    "connect-redis": "~1.4.6"
   },
   "author": "",
   "license": "MIT",
