@@ -1,4 +1,6 @@
 `import Resolver from 'resolver'`
+`import UnderAdapter from 'appkit/adapters/under'`
+`import User from 'appkit/models/user'`
 
 App = Ember.Application.extend {
   LOG_ACTIVE_GENERATION: true
@@ -16,5 +18,21 @@ Ember.RSVP.configure 'onerror', (error) ->
   if (error instanceof Error)
     Ember.Logger.assert(false, error)
     Ember.Logger.error(error.stack)
+
+###
+App.Store = DS.Store.extend {
+  adapter: UnderAdapter
+}
+
+App.User = User
+
+p = @get('store').find 'user', 'randumfaktor@hotmail.com'
+p.then(
+    (user) ->
+      App.currentUser = user
+    (err) ->
+      console.dir err
+)
+###
 
 `export default App`
