@@ -13,6 +13,20 @@ exports.map_routes = (app) ->
   app.get '/users/:id', user_router.find
   app.put '/users/:id', authorize_owner_or_admin, user_router.modify
 
+  app.get '/quarks', (req, res) ->
+    res.json {
+      quarks: [
+        {
+          id: 1
+          name: 'Up'
+        }
+        {
+          id: 2
+          name: 'Down'
+        }
+      ]
+    }
+
 exports.index = (req, res) ->
   res.render 'index', { title: 'Fields to Fork' }
 
