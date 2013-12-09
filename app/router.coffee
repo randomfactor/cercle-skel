@@ -6,6 +6,8 @@ Router.map ->
   # this.resource('posts', ->
   #   this.route('new')
   #
+  this.resource 'users'
+  this.resource 'user', { path: '/user/:user_id' }
 
 
 `export default Router`
