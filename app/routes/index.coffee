@@ -1,5 +1,6 @@
-indexRoute = Ember.Route.extend
+indexRoute = Ember.Route.extend {
   model: ->
-    @store.find('quark')
+    return this.get('store').find('user')
+}
 
 `export default indexRoute`

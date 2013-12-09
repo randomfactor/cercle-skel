@@ -1,6 +1,4 @@
-
 quark = DS.Model.extend {
-  name: DS.attr('string')
+  name: DS.attr()
 }
-
 `export default quark`

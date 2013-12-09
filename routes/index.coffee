@@ -17,18 +17,19 @@ exports.map_routes = (app) ->
     res.json {
       quarks: [
         {
-          id: 1
+          _id: 1
           name: 'Up'
+          roles: ['first', 'segundo']
         }
         {
-          id: 2
+          _id: 2
           name: 'Down'
         }
       ]
     }
 
 exports.index = (req, res) ->
-  res.render 'index', { title: 'Fields to Fork' }
+  res.render 'index', { title: 'CERCLE Stack Skeleton' }
 
 # only allow same user or admin to modify a user after it is created
 authorize_owner_or_admin = (req, res, next) ->

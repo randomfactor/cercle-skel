@@ -1,7 +1,5 @@
 import Index from 'appkit/routes/index';
 
-import User from 'appkit/models/user';
-
 var route;
 module("Unit - IndexRoute", {
   setup: function(){

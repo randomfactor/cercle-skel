@@ -1,6 +1,4 @@
 user = DS.Model.extend {
-  name: DS.attr('string')
-  bio: DS.attr('string')
+  name: DS.attr()
 }
-
 `export default user`
