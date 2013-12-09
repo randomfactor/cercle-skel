@@ -29,7 +29,7 @@ exports.map_routes = (app) ->
     }
 
 exports.index = (req, res) ->
-  res.render 'index', { title: 'CERCLE Stack Skeleton' }
+  res.render 'index', { title: 'CERCLE Stack' }
 
 # only allow same user or admin to modify a user after it is created
 authorize_owner_or_admin = (req, res, next) ->
