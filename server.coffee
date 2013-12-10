@@ -13,6 +13,10 @@ sessStore = require('connect-redis')(express)
 db = require './lib/dbdata'
 User = require('./lib/user').User
 
+# login will use browserid
+passport = require 'passport'
+BrowserIDStrategy = require('passport-browserid').Strategy
+
 app = express()
 
 redis_config = {}
@@ -44,6 +48,8 @@ app.configure ->
   app.use(express.methodOverride())
   app.use(express.cookieParser('your secret here'))
   app.use(express.session(redis_config))
+  app.use passport.initialize()
+  app.use passport.session()
   app.use(app.router)
   app.use(require('stylus').middleware(path.join(__dirname, 'public')))
   app.use('/vendor', express.static(path.join(__dirname, 'vendor')))
@@ -58,9 +64,41 @@ app.configure 'development', ->
   app.use('/tests', express.static(path.join(__dirname, 'tests')))
   app.use('/test2', express.static(path.join(__dirname, 'tmp/result/tests')))
 
+#
+app.configure ->
+  passport.serializeUser (user, done) ->
+    done null, user._id
 
+  passport.deserializeUser (email, done) ->
+    User.find_by_id(email).then(
+      (user) ->
+        done null, user
+      (err) ->
+        done err
+    )
+
+  passport.use new BrowserIDStrategy {
+    audience: primary_url
+  },
+  (email, done) ->
+    User.find_or_create_by_email(email).then(
+      (user) ->
+        done null, user
+      (err) ->
+        console.log 'lookup by email failed'
+        done err
+    )
+
+# define routes for login with browserid and logout
 app.configure ->
   app.get('/', routes.index)
+  app.get '/logout', (req, res) ->
+    req.logout()
+    res.json { user: req.user }
+  app.post '/auth/browserid',
+    passport.authenticate 'browserid', { failureRedirect: '/logout' }
+    (req, res) ->
+      res.json { user: req.user }
   routes.map_routes app
 
 # initialize the URL for persistent json document storage

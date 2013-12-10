@@ -24,7 +24,9 @@
     "jade": "~0.35.0",
     "stylus": "~0.41.0",
     "connect-redis": "~1.4.6",
-    "then-couchdb": "~0.4.3"
+    "then-couchdb": "~0.4.3",
+    "passport-browserid": "~0.1.4",
+    "passport": "~0.1.17"
   },
   "author": "",
   "license": "MIT",

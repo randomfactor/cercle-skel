@@ -7,7 +7,7 @@ Router.map ->
   #   this.route('new')
   #
   this.resource 'users'
-  this.resource 'user', { path: '/user/:user_id' }
+  this.resource 'user', { path: '/users/:user_id' }
 
 
 `export default Router`

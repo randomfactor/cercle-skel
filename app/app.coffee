@@ -18,4 +18,5 @@ Ember.RSVP.configure 'onerror', (error) ->
     Ember.Logger.error(error.stack)
 
 
+
 `export default App`
