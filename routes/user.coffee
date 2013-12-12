@@ -4,7 +4,7 @@ User = require('../lib/user').User
 exports.index = (req, res) ->
   User.find_all(req.query).then(
     (data) ->
-      res.json { users: data }
+      res.json { users: data }    # TODO: don't reveal email
     (err) ->
       res.status(404).send('Not found.')
   )
@@ -20,7 +20,7 @@ exports.find = (req, res) ->
   id = req.params.id
   User.find_by_id(id).then(
     (data) ->
-      res.json { user: data }
+      res.json { user: data }    # TODO: don't reveal email
     (err) ->
       console.error err
       res.status(404).send('Not found.')

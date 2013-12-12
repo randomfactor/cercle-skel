@@ -12,21 +12,7 @@ exports.map_routes = (app) ->
   app.post '/users', user_router.create
   app.get '/users/:id', user_router.find
   app.put '/users/:id', authorize_owner_or_admin, user_router.modify
-
-  app.get '/quarks', (req, res) ->
-    res.json {
-      quarks: [
-        {
-          _id: 1
-          name: 'Up'
-          roles: ['first', 'segundo']
-        }
-        {
-          _id: 2
-          name: 'Down'
-        }
-      ]
-    }
+  app.del '/users/:id', user_router.delete
 
 exports.index = (req, res) ->
   res.render 'index', { title: 'CERCLE Stack' }

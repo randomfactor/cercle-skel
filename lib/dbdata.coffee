@@ -14,8 +14,8 @@ class DbData
   @save: (doctype, doc) ->
     doc._id = Math.uuid() unless doc._id?
     doc.type = doctype if doctype? and not doc.type
-    console.log 'saving ...'
-    console.dir doc
+    # console.log 'saving ...'
+    # console.dir doc
     @conn().save doc
 
   @find_by_id: (doctype, key) ->

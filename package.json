@@ -61,6 +61,7 @@
     "couchapp": "~0.10.0",
     "grunt-jasmine-node": "~0.1.0",
     "grunt-contrib-coffee": "~0.7.0",
-    "grunt-contrib-stylus": "~0.11.0"
+    "grunt-contrib-stylus": "~0.11.0",
+    "karma-jasmine": "~0.1.4"
   }
 }
