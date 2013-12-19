@@ -17,6 +17,9 @@ exports.map_routes = (app) ->
 exports.index = (req, res) ->
   res.render 'index', { title: 'CERCLE Stack' }
 
+exports.test = (req, res) ->
+  res.render 'test/test'
+
 # only allow same user or admin to modify a user after it is created
 authorize_owner_or_admin = (req, res, next) ->
   if req.user?._id is req.params?.id

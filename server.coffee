@@ -61,7 +61,8 @@ app.configure 'development', ->
   app.use(express.errorHandler())
   app.set('view options', { pretty: true })
   app.locals.pretty = true
-  app.use('/tests', express.static(path.join(__dirname, 'tests')))
+  app.use('/test', routes.test)
+  app.use('/test1', express.static(path.join(__dirname, 'tests')))
   app.use('/test2', express.static(path.join(__dirname, 'tmp/result/tests')))
 
 #
